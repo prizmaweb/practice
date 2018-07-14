@@ -1,0 +1,19 @@
+def optimal(data,rows,level,col):
+  print("row is:"+str(level))
+  total=data[level*(level-1)/2+col]
+  print("element  is:"+str(total))
+  if level == rows:
+    return total
+  sum1=optimal(data,rows,level+1,col)
+  sum2=optimal(data,rows,level+1,col+1)
+  if sum1 > sum2 :
+    total  += sum1
+  else:
+    total += sum2
+  return total
+
+if __name__ == "__main__" :
+  """data=[3,7,4,2,4,6,8,5,9,3]"""
+  data=[75,95,64,17,47,82,18,35,87,10,20,04,82,47,65,19,01,23,75,03,3,4,88,02,77,73,07,63,67,99,65,04,28,06,16,70,92,41,41,26,56,83,40,80,70,33,41,48,72,33,47,32,37,16,94,29,53,71,44,65,25,43,91,52,97,51,14,70,11,33,28,77,73,17,78,39,68,17,57,91,71,52,38,17,14,91,43,58,50,27,29,48,63,66,04,68,89,53,67,30,73,16,69,87,40,31,04,62,98,27,23,9,70,98,73,93,38,53,60,04,23]
+  a=optimal(data,15,1,0)
+  print(a)
