@@ -34,7 +34,7 @@ def add_integers(str1,str2,direction):
 	for x,y in zip(reversed(str1),reversed(str2)):
 		total=int(x)+int(y)+carry
 		if total> 9 :
-			total-=10
+			total%=10
 			carry=1
 		else:
 			carry=0
@@ -46,7 +46,7 @@ def add_integers(str1,str2,direction):
 	return tmp
 
 if __name__=="__main__":
-	out=largenum("11111111111.91","99999999999999999999988.1")
+	out=largenum("11111.91","99999988.1")
 	#out=largenum("11.91","8.1")
 	print out
 
